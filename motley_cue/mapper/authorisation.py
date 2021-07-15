@@ -256,8 +256,7 @@ class Authorisation(Flaat):
 
     def get_userinfo_from_request(self, request: Request):
         token = tokentools.get_access_token_from_request(request)
-        # iss = tokentools.get_issuer_from_accesstoken_info(token)
-        iss = self.get_issuer_from_accesstoken(token)
+        iss = tokentools.get_issuer_from_accesstoken_info(token)
         if iss:
             # assume JWT
             logging.getLogger(__name__).debug(f"Found issuer URL in AT: {iss}")
